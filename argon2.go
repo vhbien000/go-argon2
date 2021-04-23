@@ -6,10 +6,15 @@
 // both side-channel and GPU cracking attacks.
 package argon2
 
-// #cgo CFLAGS: -I/usr/include
-// #cgo LDFLAGS: -L/usr/lib -largon2
+// #cgo CFLAGS: -I${SRCDIR}/argon2/include
 // #include <stdlib.h>
 // #include <argon2.h>
+// #include "argon2/src/argon2.c"
+// #include "argon2/src/core.c"
+// #include "argon2/src/blake2/blake2b.c"
+// #include "argon2/src/thread.c"
+// #include "argon2/src/encoding.c"
+// #include "argon2/src/opt.c"
 import "C"
 
 import (
@@ -116,7 +121,7 @@ func VerifyEncoded(s string, password []byte) (bool, error) {
 	if err != nil {
 		return false, err
 	}
-	
+
 	cs := C.CString(s)
 	defer C.free(unsafe.Pointer(cs))
 

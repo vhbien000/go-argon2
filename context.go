@@ -1,6 +1,6 @@
 package argon2
 
-// #cgo CFLAGS: -I/usr/include
+// #cgo CFLAGS: -I${SRCDIR}/argon2/include
 // #include <argon2.h>
 // #include "wrapper.h"
 import "C"

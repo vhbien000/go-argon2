@@ -2,8 +2,9 @@ package argon2_test
 
 import (
 	"fmt"
-	"github.com/tvdburgt/go-argon2"
 	"log"
+
+	"github.com/vhbien000/go-argon2"
 )
 
 func ExampleHash() {
